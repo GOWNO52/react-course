@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Age from "./components/Age"
 import WishList from "./components/WishList"
+import TogleButton from "./components/ToggleButton"
 
 
 
@@ -22,6 +23,7 @@ const onDeleteOne=()=>{
       <p>{count}</p>
       <button onClick={onChangeCount} >count ++</button>
       <button onClick={onDeleteOne}>count --</button>
+      <TogleButton></TogleButton>
     </>
   )
 }
