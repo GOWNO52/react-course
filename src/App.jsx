@@ -1,6 +1,7 @@
 
 import './App.css'
 import LessonTwo from './components/LessonTwo'
+import TascTwo from './components/TascTwo'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
      <LessonTwo/>
+     <TascTwo/>
     </>
   )
 }
