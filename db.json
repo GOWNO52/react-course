@@ -1,15 +1,31 @@
 {
   "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "another title", "views": 200 }
+    {
+      "title": "another titleваввыа",
+      "id": "2"
+    },
+    {
+      "title": "ыыывывфывфыв",
+      "id": "fb42"
+    },
+    {
+      "id": "25bb",
+      "title": "ыва"
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": null
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": null
+    }
   ],
   "profile": {
     "name": "typicode"
   }
 }
-
-

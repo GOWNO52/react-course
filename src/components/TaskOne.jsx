@@ -1,21 +1,19 @@
 
-
-import React, { useState } from 'react';
-import AddPost from './AddPost'; 
+import React, { useEffect, useState } from 'react';
+import AddPost from './AddPost';
 import ShowPost from './ShowPost';
+import axios from '../api/axios';
 
 const TaskOne = () => {
-    const [posts, setPosts] = useState([{ id: '1', title: 'Hello World' }]);
+    const [posts, setPosts] = useState([]);
 
-    const onAddPost = (postTitle) => {
-        const newPost = {
-            id: Date.now().toString(), 
-            title: postTitle
-        };
-        setPosts([...posts, newPost]);
+    const onAddPost = async (newPostTitle) => {
+        const { data } = await axios.post(`/posts`, { title: newPostTitle });
+        setPosts([...posts, data]);
     };
 
-    const onRemovePostById = (id) => {
+    const onRemovePostById = async (id) => {
+        await axios.delete(`/posts/${id}`);
         const updatedPosts = posts.filter(item => item.id !== id);
         setPosts(updatedPosts);
     };
@@ -26,6 +24,15 @@ const TaskOne = () => {
         );
         setPosts(updatedPosts);
     };
+
+    const fetchPost = async () => {
+        const { data } = await axios.get(`/posts`);
+        setPosts(data);
+    };
+
+    useEffect(() => {
+        fetchPost();
+    }, []);
 
     return (
         <>

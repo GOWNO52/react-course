@@ -1,28 +1,26 @@
 
 
-import { useState} from "react";
+import { useState } from "react";
 
 const AddPost = (props) => {
-    const [newPostTitle, setNewPostTitle] = useState (``);
-
-
+    const [newPostTitle, setNewPostTitle] = useState('');
 
     const onChangeTitle = (e) => {
-        setNewPostTitle(e.target.value)
+        setNewPostTitle(e.target.value);
     };
 
-    const onSubmit = () =>{
-        props.onAddPost(newPostTitle)
-        setNewPostTitle(``)
-    }
-
+    const onSubmit = () => {
+        if (!newPostTitle.trim()) return;
+        props.onAddPost(newPostTitle);
+        setNewPostTitle('');
+    };
 
     return (
         <>
             <input value={newPostTitle} onChange={onChangeTitle} />
-            <button onClick={onSubmit}>submit </button>
+            <button onClick={onSubmit}>Submit</button>
         </>
     );
 };
 
-export default AddPost
+export default AddPost;
