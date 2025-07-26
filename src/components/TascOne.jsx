@@ -1,25 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { useDispatch, useSelector } from 'react-redux'
-import { minusOne, plusOne } from './store/todoSlice'
+import { useDispatch, useSelector } from 'react-redux';
+import { plusOne, minusOne } from './store/todoSlice';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
 
 function App() {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.todos.count)
-  console.log(count)
+  const count = useSelector((state) => state.todos.count);
 
-  const onClickButton = () => {
-    dispatch(plusOne())
-  }
+  const onClickButtonPlus = () => {
+    dispatch(plusOne());
+  };
 
-
-  const onClickButon =  () => {
-    dispatch(minusOne())
-  }
-
-
+  const onClickButtonMinus = () => {
+    dispatch(minusOne());
+  };
 
   return (
     <>
@@ -32,21 +27,19 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">,=
-        <button onClick={onClickButton}>+</button>
-         <button onClick={onClickButon}>-</button>
-
-            count is {count}
-        
-          <p>
-            Edit <code>src/App.jsx</code> and save to test HMR
-          </p>
+      <div className="card">
+        <button onClick={onClickButtonPlus}>+</button>
+        <button onClick={onClickButtonMinus}>-</button>
+        <p>count is {count}</p>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
